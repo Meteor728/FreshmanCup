@@ -22,46 +22,22 @@
 
 ---
 
-## 📂 **文件结构**
-```plaintext
-LLM-Project/
-│── Dataset/                    # 存放数据集
-│── .gitattributes               # Git 属性配置
-│── .gitignore                   # Git 忽略文件
-│── EventHandler.py              # 主程序入口（核心控制逻辑）
-│── PromptEngine.py              # 处理提示词优化
-│── PromptLab.py                 # 提示词实验与测试
-│── QueryEngine.py               # 处理查询和知识库检索（RAG）
-│── README.md                    # 项目文档
-│── Reranker.py                  # 重新排序检索结果，提高 RAG 质量
-│── TextInputApp.py               # 终端/GUI 文本交互应用
-│── api_request_schema.py         # API 请求结构定义
-│── audio_bedrock_wrapper.py      # 处理音频输入（多模态）
-│── check_model.py                # 模型完整性检查
-│── debug.json                    # 调试信息
-│── knowledge_base.py             # 知识库管理（RAG）
-│── requirements.txt              # 依赖库
-│── text_bedrock_wrapper.py       # 处理文本输入（多模态）
-```
-**📌 主程序文件**：`EventHandler.py`（核心控制逻辑）
-
-## 📝 **各文件用途说明**
+## 📝 **各文件用途**
 | 文件名 | 作用 |
 |--------|----------------------------------|
 | `EventHandler.py` | **主程序入口**，协调所有模块，执行核心逻辑 |
-| `PromptEngine.py` | 处理提示词优化，提高 LLM 生成质量 |
+| `TextInputApp.py` | 提供终端/GUI 交互的文本应用 |
+| `PE_Package/PromptEngine.py` | 处理提示词优化，提高 LLM 生成质量 |
 | `PromptLab.py` | 提示词实验和测试平台 |
 | `QueryEngine.py` | 处理查询、知识库检索（RAG） |
 | `Reranker.py` | 重新排序检索结果，提高 RAG 生成质量 |
-| `TextInputApp.py` | 提供终端/GUI 交互的文本应用 |
-| `api_request_schema.py` | 定义 API 请求结构和数据格式 |
-| `audio_bedrock_wrapper.py` | 处理音频输入，实现多模态交互 |
-| `check_model.py` | 确保模型完整性，检测依赖 |
-| `debug.json` | 调试配置文件 |
 | `knowledge_base.py` | 处理知识库管理（RAG） |
-| `text_bedrock_wrapper.py` | 处理文本输入，集成 LLM |
+| `api_request_schema.py` | 定义 API 请求结构和数据格式 |
+| `BedrockWrapper_audio.py` | 处理音频输入，实现多模态交互 |
+| `BedrockWrapper_text.py` | 处理文本输入，集成 LLM |
+| `Embedding.py` | 处理文本嵌入（向量化） |
+| `debug.json` | 调试配置文件 |
 
----
 
 ## 🛠 **安装与使用**
 ### 1️⃣ **安装依赖**
