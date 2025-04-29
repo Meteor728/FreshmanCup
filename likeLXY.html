@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喜欢刘昕雨吗？</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .question, .result {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .like {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .dislike {
+            background-color: #f44336;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="question">你喜欢刘昕雨吗？</div>
+    <button class="button like" onclick="handleLike()">喜欢</button>
+    <button class="button dislike" onclick="handleDislike()">不喜欢</button>
+
+    <!-- 结果区域 -->
+    <div class="result hidden" id="resultMessage"></div>
+
+    <script>
+        let dislikeCount = 0; // 用于记录“不喜欢”按钮被点击的次数
+
+        function handleLike() {
+            // 隐藏问题和按钮
+            document.querySelector('.question').classList.add('hidden');
+            document.querySelector('.like').classList.add('hidden');
+            document.querySelector('.dislike').classList.add('hidden');
+
+            // 显示结果
+            const resultMessage = document.getElementById('resultMessage');
+            resultMessage.classList.remove('hidden');
+            resultMessage.textContent = '那快对刘昕雨表白吧！';
+        }
+
+        function handleDislike() {
+            // 获取“不喜欢”按钮
+            const dislikeButton = document.querySelector('.dislike');
+
+            // 每次点击后，按钮的大小逐渐变小
+            dislikeCount++;
+            if (dislikeCount <= 4) {
+                const scale = 1 - 0.2 * dislikeCount; // 每次点击后，按钮大小减少 20%
+                dislikeButton.style.transform = `scale(${scale})`;
+            }
+
+            // 如果点击了四次，隐藏“不喜欢”按钮
+            if (dislikeCount === 4) {
+                dislikeButton.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
